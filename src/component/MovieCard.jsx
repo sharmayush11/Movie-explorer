@@ -5,7 +5,7 @@ function MovieCard({ movie }) {
     <div className="movie-card">
       <img
         alt={movie.Title}
-        src="{movie.Poster}"
+        src={movie.Poster}
       />
       <h3>{movie.Title}</h3>
       <p>{movie.Year}</p>
