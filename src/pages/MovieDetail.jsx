@@ -1,27 +1,35 @@
-import {  useParams } from 'react-router-dom'
-import { useEffect , useState } from 'react'
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function MovieDetail() {
-    const { id } = useParams() //param mtlb parameters
-    const [ movie , setMovie ] = useState()
+  const { id } = useParams(); //param mtlb parameters
+  const [movie, setMovie] = useState();
 
-    useEffect(() => {
-        async function getMovie() {
-            const res = await fetch(`https://www.omdbapi.com/?apikey=53dbc5d0&i=${id}`)
-            const data = await res.json()
-            setMovie(data)
-        }
-        getMovie();
-    },[id])
+  useEffect(() => {
+    async function getMovie() {
+      const res = await fetch(
+        `http://www.omdbapi.com/?apikey=53dbc5d0&i=${id}`,
+      );
+      const data = await res.json();
+      setMovie(data);
+    }
+    getMovie();
+  }, [id]);
+
+  if (!movie) return <p>Loading...</p>;
+
   return (
     <div className="movie-detail">
-		<h2>{movie.Title}</h2>
-		<img alt={movie.Title} src={movie.Poster}/>
-		<p><strong>Genre:</strong> {movie.Type}</p>
-		<p><strong>Released:</strong> {movie.Year}</p>
-		<p><strong>Plot:</strong> The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.</p>
-	</div>
-  )
+      <h2>{movie.Title}</h2>
+      <img alt={movie.Title} src={movie.Poster} />
+      <p><strong>Genre:</strong> {movie.Genre}</p>
+      <p><strong>Released:</strong> {movie.Released}</p>
+      <p><strong>Plot:</strong> {movie.Plot}</p>
+      <p><strong>Actors:</strong> {movie.Actors}</p>
+      <p><strong>Director:</strong> {movie.Director}</p>
+      <p><strong>IMDb Rating:</strong> {movie.imdbRating}</p>
+    </div>
+  );
 }
 
-export default MovieDetail
+export default MovieDetail;
