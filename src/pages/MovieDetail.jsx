@@ -25,11 +25,12 @@ function MovieDetail() {
   <div className="movie-info">
     <h2>{movie.Title}</h2>
 
+    <div className="badge">⭐ {movie.imdbRating}/10 IMDb</div>
+
     <p><strong>Genre:</strong> {movie.Genre}</p>
     <p><strong>Released:</strong> {movie.Released}</p>
     <p><strong>Actors:</strong> {movie.Actors}</p>
     <p><strong>Director:</strong> {movie.Director}</p>
-    <p><strong>IMDb Rating:</strong> {movie.imdbRating}</p>
     <p><strong>Plot:</strong> {movie.Plot}</p>
   </div>
 </div>
