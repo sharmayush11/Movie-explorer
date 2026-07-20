@@ -6,25 +6,44 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #0f172a, #1e293b, #020617);
+  background: #0b0f19;
+  color: #fff;
   min-height: 100vh;
-  color: white;
+  background-image:
+    radial-gradient(circle at top left, rgba(255, 71, 87, 0.12), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 35%);
 }
 
 /* Navbar */
 
 .navbar {
-  height: 70px;
-  background: rgba(15, 23, 42, 0.95);
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
+  background: rgba(10, 15, 25, .85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   position: sticky;
   top: 0;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0,0,0,.3);
+  z-index: 999;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ff4757;
+  letter-spacing: 2px;
+}
+
+.navbar a {
+  color: #ddd;
+  transition: .3s;
+}
+
+.navbar a:hover {
+  color: #ff4757;
 }
 
 .logo {
@@ -60,32 +79,39 @@ body {
 /* Search */
 
 .home form {
+  margin: 40px auto;
+  max-width: 650px;
   display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
 }
 
 .searchInput {
-  transition: .3s;
+  flex: 1;
+  background: #1b2438;
+  border: 1px solid rgba(255,255,255,.08);
+  color: white;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 12px 0 0 12px;
 }
 
 .searchInput:focus {
-  box-shadow: 0 0 20px rgba(255,71,87,.6);
+  outline: none;
+  border-color: #ff4757;
 }
 
 .home button {
+  width: 140px;
   border: none;
-  padding: 14px 25px;
   background: #ff4757;
   color: white;
-  font-size: 16px;
+  font-weight: 600;
+  border-radius: 0 12px 12px 0;
   cursor: pointer;
-  border-radius: 0 50px 50px 0;
   transition: .3s;
 }
 
 .home button:hover {
-  background: #ff2e43;
+  background: #ff2d55;
 }
 
 /* Movie List */
@@ -99,24 +125,28 @@ body {
 /* Movie Card */
 
 .movie-card {
-  background: #1e293b;
-  border-radius: 15px;
+  background: #141b2d;
+  border-radius: 18px;
   overflow: hidden;
   transition: .35s;
-  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+  border: 1px solid rgba(255,255,255,.05);
 }
 
 .movie-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(255,71,87,.4);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.45);
+  border-color: rgba(255,71,87,.5);
 }
 
 .movie-card img {
-  transition: .4s;
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  transition: .35s;
 }
 
 .movie-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .movie-card h3 {
@@ -132,53 +162,52 @@ body {
 
 .movie-card a {
   display: block;
-  margin: 15px;
+  text-align: center;
+  margin: 18px;
   padding: 12px;
+  border-radius: 10px;
   background: #ff4757;
-  text-decoration: none;
   color: white;
-  border-radius: 8px;
+  text-decoration: none;
   transition: .3s;
 }
 
 .movie-card a:hover {
-  background: #ff2e43;
+  background: #ff2d55;
 }
 
 /* Movie Detail */
 
 .movie-detail {
-  width: 900px;
-  max-width: 95%;
+  max-width: 1100px;
   margin: 50px auto;
+  background: #141b2d;
+  border-radius: 20px;
+  padding: 35px;
   display: flex;
   gap: 40px;
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.4);
-  align-items: flex-start;
+  border: 1px solid rgba(255,255,255,.06);
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
 }
 
 .movie-detail img {
-  width: 300px;
-  flex-shrink: 0;
-  border-radius: 15px;
+  width: 320px;
+  border-radius: 16px;
 }
 
 .movie-info {
   flex: 1;
-  overflow-wrap: break-word;
 }
 
 .movie-info h2 {
+  font-size: 38px;
   margin-bottom: 20px;
 }
 
 .movie-info p {
-  margin: 12px 0;
+  margin: 15px 0;
+  color: #cbd5e1;
   line-height: 1.7;
-  word-break: break-word;
 }
 
 /* Responsive */
@@ -211,4 +240,38 @@ body {
     border-radius:50px;
   }
 
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff4757;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b81;
+}
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+.home,
+.movie-detail {
+  animation: fadeIn .7s ease;
 }
