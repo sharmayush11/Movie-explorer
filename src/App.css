@@ -185,20 +185,23 @@ body {
 
 @media(max-width:768px){
 
-  .movie-detail{
-    flex-direction: column;
-    text-align:center;
-    align-items:center;
-  }
+  .movie-detail {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.08);
+}
 
   .searchInput{
     width:100%;
   }
 
-  .home form{
-    flex-direction:column;
-    gap:10px;
-  }
+  .home button {
+  transition: .3s;
+}
+
+.home button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255,71,87,.5);
+}
 
   .searchInput{
     border-radius:50px;
